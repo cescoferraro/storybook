@@ -6,7 +6,7 @@ export interface IButtonProps {
 const styles = {
   border: '1px solid #eee',
   borderRadius: 3,
-  backgroundColor: '#FFFFFF',
+  backgroundColor: '#fff',
   cursor: 'pointer',
   fontSize: 15,
   padding: '3px 10px',
