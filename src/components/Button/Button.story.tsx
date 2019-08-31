@@ -1,7 +1,11 @@
-import { storiesOf } from '@storybook/react';
+import {storiesOf} from '@storybook/react';
 import * as React from 'react';
-import Button from '../Button';
+import B2BButton from '../Button';
+import {withKnobs} from '@storybook/addon-knobs';
 
-storiesOf('Button', module)
-  .add('with text', () => <Button>Hello Button</Button>)
-  .add('with some emoji', () => <Button>😀 😎 👍 💯</Button>);
+const stories = storiesOf('B2BButton', module);
+stories.addDecorator(withKnobs);
+
+
+stories.add('with text', () => <B2BButton/>);
+// .add('with some emoji', () => <B2BButton label={<span role="image">😀 😎 👍 </span>}/>);
