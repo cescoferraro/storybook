@@ -1,6 +1,11 @@
 import typescript from 'rollup-plugin-typescript2'
 import pkg from './package.json'
 
+console.log(pkg)
+let external = [
+    ...Object.keys(pkg.dependencies || {}),
+];
+console.log(external)
 export default {
     input: 'src/index.tsx',
     output: [
@@ -13,10 +18,8 @@ export default {
             format: 'es',
         },
     ],
-    external: [
-        ...Object.keys(pkg.dependencies || {}),
-        ...Object.keys(pkg.peerDependencies || {}),
-    ], plugins: [
+    external: external,
+    plugins: [
         typescript({
             typescript: require('typescript'),
         }),

@@ -1,7 +1,6 @@
 import * as React from 'react';
-import {Button, createStyles} from "@material-ui/core";
+import {Button, createStyles, makeStyles} from "@material-ui/core";
 import PropTypes from "prop-types";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import {boolean, select, text} from "@storybook/addon-knobs";
 
 let regular = "primary";
