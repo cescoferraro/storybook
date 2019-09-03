@@ -1,6 +1,6 @@
 {
   "name": "cescoferraro-storybook",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "files": [
@@ -44,7 +44,6 @@
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^5.1.11",
-    "@storybook/addon-actions": "^5.1.11",
     "@storybook/addon-backgrounds": "^5.1.11",
     "@storybook/addon-info": "^5.1.11",
     "@storybook/addon-knobs": "^5.1.11",
