@@ -1,20 +1,8 @@
-import {storiesOf} from '@storybook/react';
 import * as React from 'react';
-import MainHeader from '../MainHeader';
-import {withKnobs} from "@storybook/addon-knobs";
+import {storiesOf} from '@storybook/react';
+import MainHeader from './MainHeader';
 
-const stories = storiesOf('MainHeader', module);
-stories
-  .addDecorator(withKnobs)
-  
-  .add('default', () => <MainHeader
-      title={"Title"}
-      subtitle={"Subtitle"}
-    />
-  )
-  .add('different color', () => <MainHeader
-    title={"Title"}
-    textColor={"red"}
-    subtitle={"Subtitle"}
-  />);
-// .add('with some emoji', () => <B2BButton label={<span role="image">😀 😎 👍 </span>}/>);
+storiesOf('MainHeader', module)
+  .add('default', () => <MainHeader title={"Title"} subtitle={"Subtitle"}/>)
+  .add('mobile', () => <MainHeader mobile={true} title={"Title"} subtitle={"Subtitle"}/>)
+  .add('different color', () => <MainHeader title={"Title"} textColor={"red"} subtitle={"Subtitle"}/>);

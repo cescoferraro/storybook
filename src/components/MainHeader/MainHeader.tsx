@@ -3,13 +3,23 @@ import {Typography} from "@material-ui/core";
 import {boolean, color, text} from "@storybook/addon-knobs";
 import PropTypes from "prop-types";
 
-let s = "#1B3C4D";
+const buttonPropTypes = {
+  /** textColor label */
+  textColor: PropTypes.string,
+  /** title label */
+  title: PropTypes.string.isRequired,
+  /** subtitle label */
+  subtitle: PropTypes.string.isRequired,
+  /** mobile label */
+  mobile: PropTypes.bool
+};
+
 /** Another label */
-const B2BMainText = (
-  {mobile = false, textColor = s, title = "Titutle Referencia", subtitle = "Subtitule REferencia"}:
-    { mobile?: boolean, textColor?: string, title: string, subtitle: string }
+export const B2BMainText = (
+  {mobile = false, textColor, title, subtitle}:
+    PropTypes.InferProps<hey>
 ) => {
-  const isMobile = boolean("mobile", mobile)
+  const isMobile = boolean("mobile", mobile);
   let innerColor = color("cor", textColor);
   return (
     <React.Fragment>
@@ -20,9 +30,11 @@ const B2BMainText = (
       >
         {text("Title", title)}
       </Typography>
-      
       {!isMobile &&
-      <Typography style={{fontSize: 12, textAlign: "center", color: innerColor}} variant="subtitle2">
+      <Typography
+          style={{fontSize: 12, textAlign: "center", color: innerColor}}
+          variant={isMobile ? "h4" : "h3"}
+      >
         {text("Subtitle", subtitle)}
       </Typography>
       }
@@ -32,19 +44,10 @@ const B2BMainText = (
 };
 
 B2BMainText.defaultProps = {
-  textColor: s,
+  textColor: "#1B3C4D",
   mobile: false
 };
 
-B2BMainText.propTypes = {
-  /** textColor label */
-  textColor: {type: PropTypes.string, description: "sdkjfn"},
-  /** title label */
-  title: PropTypes.string.isRequired,
-  /** subtitle label */
-  subtitle: PropTypes.string.isRequired,
-  /** mobile label */
-  mobile: PropTypes.bool
-};
+B2BMainText.propTypes = buttonPropTypes;
 
 export default B2BMainText;
