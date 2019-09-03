@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Button, createStyles} from "@material-ui/core";
 import PropTypes from "prop-types";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {select, text} from "@storybook/addon-knobs";
+import {boolean, select, text} from "@storybook/addon-knobs";
 import {action} from "@storybook/addon-actions";
 
 let regular = "primary";
@@ -25,7 +25,7 @@ let propTypes = {
   onClick: PropTypes.func
 };
 
-const ya = (type) => makeStyles(() => {
+const ya = (type:any) => makeStyles(() => {
   let background = "#0098A6";
   let sbackground = "white";
   let hoverbackground = "#006a74";
@@ -49,7 +49,8 @@ const ya = (type) => makeStyles(() => {
 
 export const B2BButton = (
   {type, disabled, style, submit, label, onClick}:
-    PropTypes.InferProps<propTypes>
+    any
+    // PropTypes.InferProps<typeof propTypes>
 ) => {
   const ktype = select("Type", {primary: "primary", secondary: "secondary"}, type)
   const classes: any = ya(ktype)();
@@ -60,7 +61,7 @@ export const B2BButton = (
         containedSecondary: classes.containedSecondary,
       }}
       href={""}
-      disabled={disabled}
+      disabled={boolean("disabled", disabled)}
       type={submit ? "submit" : "button"}
       style={{minWidth: 300, margin: 0, ...style}}
       color={ktype}
