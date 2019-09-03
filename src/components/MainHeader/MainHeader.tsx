@@ -17,7 +17,8 @@ const buttonPropTypes = {
 /** Another label */
 export const B2BMainText = (
   {mobile = false, textColor, title, subtitle}:
-    PropTypes.InferProps<hey>
+    any
+    // PropTypes.InferProps<hey>
 ) => {
   const isMobile = boolean("mobile", mobile);
   let innerColor = color("cor", textColor);
